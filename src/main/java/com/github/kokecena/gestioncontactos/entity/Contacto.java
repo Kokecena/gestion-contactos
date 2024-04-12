@@ -23,8 +23,8 @@ public class Contacto {
     private Informacion informacion;
     @Embedded
     private Direccion direccion;
-    @Column
+    @Column(length = 254)
     private String correo;
-    @Column(nullable = false)
+    @Column(length = 15, nullable = false)
     private String numTelefono;
 }
