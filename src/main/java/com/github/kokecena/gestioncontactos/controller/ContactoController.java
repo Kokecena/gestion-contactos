@@ -2,6 +2,8 @@ package com.github.kokecena.gestioncontactos.controller;
 
 import com.github.kokecena.gestioncontactos.commons.response.Response;
 import com.github.kokecena.gestioncontactos.entity.Contacto;
+import com.github.kokecena.gestioncontactos.model.ContactoDTO;
+import com.github.kokecena.gestioncontactos.model.ContactoResponse;
 import com.github.kokecena.gestioncontactos.service.ContactoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,18 +19,18 @@ public class ContactoController {
     private final ContactoService contactoService;
 
     @GetMapping("/todos")
-    public ResponseEntity<Response<List<Contacto>>> findAll() {
+    public ResponseEntity<Response<List<ContactoDTO>>> findAll() {
         return Response.success(contactoService.findAll());
     }
 
     @PostMapping
-    public ResponseEntity<Response<Contacto>> saveContacto(Contacto contacto) {
+    public ResponseEntity<Response<ContactoResponse>> saveContacto(ContactoDTO contacto) {
         return Response.success(contactoService.saveContacto(contacto));
     }
 
     @DeleteMapping
-    public ResponseEntity<Response<Contacto>> deleteContacto(Contacto contacto) {
-        return Response.success(contactoService.deleteContacto(contacto));
+    public ResponseEntity<Response<Contacto>> deleteContacto(ContactoDTO contacto) {
+        throw new IllegalStateException("No implementado XD");
     }
 
 }

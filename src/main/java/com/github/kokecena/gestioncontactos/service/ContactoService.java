@@ -1,13 +1,14 @@
 package com.github.kokecena.gestioncontactos.service;
 
-import com.github.kokecena.gestioncontactos.entity.Contacto;
+import com.github.kokecena.gestioncontactos.model.ContactoDTO;
+import com.github.kokecena.gestioncontactos.model.ContactoResponse;
 
 import java.util.List;
 
 public interface ContactoService {
-    List<Contacto> findAll();
+    List<ContactoDTO> findAll();
 
-    Contacto saveContacto(Contacto contacto);
+    ContactoResponse saveContacto(ContactoDTO contacto);
 
-    Contacto deleteContacto(Contacto contacto);
+    ContactoResponse deleteContacto(ContactoDTO contacto);
 }
