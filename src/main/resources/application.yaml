@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: gestion-contactos
+#Table
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
+    show-sql: true
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: oracle.jdbc.OracleDriver
+#Port
+server:
+  port: 8081
