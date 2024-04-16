@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/contactos")
 @RequiredArgsConstructor
+@CrossOrigin
 @Validated
 public class ContactoController {
 
@@ -26,8 +27,9 @@ public class ContactoController {
         return Response.success(contactoService.findAll());
     }
 
-    @GetMapping
-    public ResponseEntity<Response<ContactoDTO>> findByPhoneNumber(@RequestParam @PhoneNumber String telefono) {
+    @GetMapping("/contacto")
+    public ResponseEntity<Response<ContactoDTO>> findByPhoneNumber(@RequestParam
+                                                                   @PhoneNumber(message = "Parametro numero no valido") String telefono) {
         return Response.success(contactoService.findBy(telefono));
     }
 
@@ -36,8 +38,9 @@ public class ContactoController {
         return Response.success(contactoService.saveContacto(contacto));
     }
 
-    @PutMapping("/{telefono}")
-    public ResponseEntity<Response<ContactoResponse>> updateContacto(@PathVariable @PhoneNumber String telefono,
+    @PutMapping("/contacto/{telefono}")
+    public ResponseEntity<Response<ContactoResponse>> updateContacto(@PathVariable
+                                                                     @PhoneNumber(message = "Parametro numero no valido") String telefono,
                                                                      @Valid @RequestBody ContactoDTO contacto) {
         return Response.success(contactoService.updateContacto(telefono, contacto));
     }
