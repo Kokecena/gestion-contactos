@@ -2,6 +2,7 @@ package com.github.kokecena.gestioncontactos.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @Setter
+@ToString
 public class Contacto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +27,6 @@ public class Contacto {
     private Direccion direccion;
     @Column(length = 254)
     private String correo;
-    @Column(length = 15, nullable = false)
+    @Column(length = 15, nullable = false, unique = true)
     private String numTelefono;
 }
