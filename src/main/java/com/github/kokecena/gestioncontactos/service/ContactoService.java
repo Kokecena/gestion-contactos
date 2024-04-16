@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface ContactoService {
     List<ContactoDTO> findAll();
-
+    ContactoDTO findBy(String telefono);
     ContactoResponse saveContacto(ContactoDTO contacto);
-
-    ContactoResponse deleteContacto(ContactoDTO contacto);
+    ContactoResponse updateContacto(String telefono, ContactoDTO toUpdate);
+    ContactoResponse deleteContacto(String telefono);
 }
