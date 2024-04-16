@@ -1,4 +1,7 @@
 spring:
+  web:
+    resources:
+      add-mappings: false
   application:
     name: gestion-contactos
 #Table
@@ -8,6 +11,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.Oracle12cDialect
+        format_sql: true
     show-sql: true
   datasource:
     url: ${DATABASE_URL}
